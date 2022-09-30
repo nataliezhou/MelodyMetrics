@@ -12,17 +12,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-	- name: Checkout Code
-          uses: actions/checkout@v3
-          with:
-            fetch-depth: 0
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
-    	- name: Lint Code Base
-          uses: github/super-linter@v4
-	  env:
-	    VALIDATE_ALL_CODEBASE: true
-	    VALIDATE_JAVASCRIPT_ES: true
-	    VALIDATE_CSS_STYLELINT: true
-	    DEFAULT_BRANCH: main
-	    IGNORE_GITIGNORED_FILES: true
-	    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_YAML_YAMLLINT: true
+          VALIDATE_CSS_STYLELINT: true
+          DEFAULT_BRANCH: main
+          IGNORE_GITIGNORED_FILES: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

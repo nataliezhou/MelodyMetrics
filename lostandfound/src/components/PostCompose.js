@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import App from '../App';
 
 function PostCompose() { 
     const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: ""});

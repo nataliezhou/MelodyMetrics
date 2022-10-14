@@ -6,7 +6,6 @@ import './styling/App.css';
 import Data from "./mock-data.json"
 import Item from "./components/Item.js"
 import PostCompose from './components/PostCompose';
-import { useItemsStatus } from './components/ItemsHook';
 
 function App() {
   // retrieve preset data

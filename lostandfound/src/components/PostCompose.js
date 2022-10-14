@@ -1,16 +1,21 @@
 import React, { useState } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import App from '../App';
 
 function PostCompose() { 
-    const [postContent, setPostContent] = useState({ name: "", date: "", location: "", contact: "", description: ""});
+    const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: ""});
+    const [items, setItems] = useState(
+        JSON.parse(localStorage.getItem("items")) || []
+    );
+    console.log(items);
     function handleChange(event) {
         const target = event.target;
         const value = target.value;
         const name = target.name;
         if (name == "itemName") {
-            setPostContent({...postContent, name: value});
-        } else if (name == "date") {
+            setPostContent({...postContent, item: value});
+        } else if (name == "datetime") {
             setPostContent({...postContent, date: value});
         } else if (name == "location") {
             setPostContent({...postContent, location: value});
@@ -21,33 +26,21 @@ function PostCompose() {
         }
     }
     function handleSubmit(e) {
-        e.preventDefault();
+        React.memo();
+        console.log("handle");
         createPost(postContent);
+       // document.getElementsByName("Popup").classList.remove("show");
     }
      async function createPost(content) {
         try {
-        //    const response = await axios({
-        //     method: "post",
-        //     url: "/api/v1/insertpost",
-        //     headers: {
-        //       Authorization: localStorage.getItem("psnToken"),
-        //     },
-        //     data: {
-        //       id: null,
-        //       userId: localStorage.getItem("psnUserId"),
-        //       content: inputContent,
-        //       image: file64StringWithType,
-        //       createdAt: null,
-        //       love: null,
-        //       share: null,
-        //       comment: null,
-        //     },
-        //   });
-     
+            localStorage.setItem("items", JSON.stringify(items.concat(content)));
             console.log("Posted successfully!");
-            setPostContent("", null, "", "", "");
+         //   const initItems = JSON.parse(localStorage.getItem("items"));
+            //console.log(initItems);
+           // setPostContent("", null, "", "", "");
           
         } catch (error) {
+            console.log(error);
           console.log("Post failed. Please try again later!");
         }
     } 
@@ -85,7 +78,7 @@ function PostCompose() {
                             onChange={ handleChange } />
                     </label>
                     <div>
-                        <button variant="primary" type="submit">Post</button>
+                        <button variant="primary" type = "submit">Post</button>
                         <button className="button" onClick={() => { console.log('modal closed '); close(); }} > Cancel </button> 
                     </div>
                 </form>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 // import logo from './logo.svg';
 import './styling/App.css';
 // import SearchBar from './components/SearchBar';
@@ -6,8 +6,25 @@ import './styling/App.css';
 import Data from "./mock-data.json"
 import Item from "./components/Item.js"
 import PostCompose from './components/PostCompose';
+import { useItemsStatus } from './components/ItemsHook';
 
 function App() {
+  // retrieve preset data
+  initItems = []
+  if(!localStorage.getItem("items")){ // only runs the first
+    console.log("first")
+    var initItems = []
+    Data.map((post) => (
+      initItems.push(post) 
+    ));
+    localStorage.setItem("items", JSON.stringify(initItems));
+  } else {
+    console.log("second")
+    initItems = JSON.parse(localStorage.getItem("items"));
+  }
+  const [items, setItems] = useState(initItems);
+  console.log(items);
+  
   return (
     <div className="App">
       {/* <header className="App-header"> */}
@@ -28,9 +45,10 @@ function App() {
         <input placeholder="Enter description of lost item, location/date you lost it at"/>
         <div className = "postBox">
           {
-          Data.map((post) => (
-            <div className="box"> <Item data={post} /></div>
-          ))}
+            items.map((item) => (
+              <div className="box"> <Item data={item} /></div>
+            ))
+          }
         </div>
         
 

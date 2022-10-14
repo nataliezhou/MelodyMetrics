@@ -5,6 +5,7 @@
   align-items: center;
   text-align: center;
   margin: 1rem;
+  gap: .5rem;
 }
 
 .postBox {
@@ -22,6 +23,7 @@
   pointer-events: none;
 } */
 
+
 .box {
   text-align: left;
   border: black ridge 1px;
@@ -31,10 +33,17 @@
   padding-left: 10px;
 }
 
-input {
+input { /* search bar */
   padding: .5rem;
   width: 400px;
 }
+
+button {
+  padding: .5rem;
+  font-size: 15px;
+}
+
+.modal { font-size: 12px;}.modal > .header { width: 100%; border-bottom: 1px solid gray; font-size: 18px; text-align: center; padding: 5px;}.modal > .content { width: 100%; padding: 10px 5px;}.modal > .actions { width: 100%; padding: 10px 5px; margin: auto; text-align: center;}.modal > .close { cursor: pointer; position: absolute; display: block; padding: 2px 5px; line-height: 20px; right: -10px; top: -10px; font-size: 24px; background: #ffffff; border-radius: 18px; border: 1px solid #cfcece;} 
 
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {

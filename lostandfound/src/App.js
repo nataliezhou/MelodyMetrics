@@ -5,6 +5,7 @@ import './styling/App.css';
 //import {useState} from "react"; // hook
 import Data from "./mock-data.json"
 import Item from "./components/Item.js"
+import PostCompose from './components/PostCompose';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         >
           Learn React
         </a> */}
+        
+        <PostCompose></PostCompose>
         <input placeholder="Enter description of lost item, location/date you lost it at"/>
         <div className = "postBox">
           {

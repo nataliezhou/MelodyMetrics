@@ -1,10 +1,29 @@
+import React, {useState, useEffect} from 'react'
 // import logo from './logo.svg';
-import './App.css';
+import './styling/App.css';
 // import SearchBar from './components/SearchBar';
-import {useState} from "react";
-import Data from "/Users/aditishah/Desktop/cs 222/course-project-group-39/lostandfound/src/mock-data.json"
+//import {useState} from "react"; // hook
+import Data from "./mock-data.json"
+import Item from "./components/Item.js"
+import PostCompose from './components/PostCompose';
 
 function App() {
+  // retrieve preset data
+  initItems = []
+  if(!localStorage.getItem("items")){ // only runs the first
+    console.log("first")
+    var initItems = []
+    Data.map((post) => (
+      initItems.push(post) 
+    ));
+    localStorage.setItem("items", JSON.stringify(initItems));
+  } else {
+    console.log("second")
+    initItems = JSON.parse(localStorage.getItem("items"));
+  }
+  const [items, setItems] = useState(initItems);
+  console.log(items);
+  
   return (
     <div className="App">
       {/* <header className="App-header"> */}
@@ -20,19 +39,17 @@ function App() {
         >
           Learn React
         </a> */}
+        
+        <PostCompose></PostCompose>
         <input placeholder="Enter description of lost item, location/date you lost it at"/>
-        {
-  Data.map((post) => (
-    <div className="box" key={post.id}>
-      <p>{post.item}</p>
-      <p>{post.color}</p>
-      <p>{post.location}</p>
-      <p>{post.datetime}</p>
-    </div>
-  ))}
-
-
-
+        <div className = "postBox">
+          {
+            items.map((item) => (
+              <div className="box"> <Item data={item} /></div>
+            ))
+          }
+        </div>
+        
 
 
 

@@ -8,6 +8,8 @@ import Item from "./components/Item.js"
 import PostCompose from './components/PostCompose';
 
 function App() {
+  //query
+  const [query, setQuery] = useState("")
   // retrieve preset data
   initItems = []
   if(!localStorage.getItem("items")){ // only runs the first
@@ -39,38 +41,28 @@ function App() {
         >
           Learn React
         </a> */}
-        
+
         <PostCompose></PostCompose>
-        <input placeholder="Enter description of lost item, location/date you lost it at"/>
+        <input placeholder="Enter description of lost item, location/date you lost it at" onChange={event => setQuery(event.target.value)} />
         <div className = "postBox">
-          {
-            items.map((item) => (
-              <div className="box"> <Item data={item} /></div>
-            ))
-          }
+        {
+          Data.filter(items => {
+            if (query === '') {
+              return items;
+            } else if (items.item.toLowerCase().includes(query.toLowerCase())) {
+              return items;
+            }
+          }).map((item) => (
+            <div className="box"> <Item data={item} /></div>
+          ))
+        }
         </div>
         
-
-
-
-
-        
-        {/* {Data.map((post) => (
-          <div className="box" key={post.id}>
-            <p>{post.item}</p>
-            <p>{post.color}</p>
-            <p>{post.location}</p>
-            <p>{post.datetime}</p>
-          </div>
-})
-} */}
-        
-        
-        {/* <SearchBar /> */}
-      {/* </header> */}
     </div>
   );
 }
 
-
 export default App;
+
+        
+        

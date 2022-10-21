@@ -1,13 +1,26 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 function PostCompose() { 
-    const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: ""});
+    const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: "", image: ""});
     const [items, setItems] = useState(
         JSON.parse(localStorage.getItem("items")) || []
     );
     console.log(items);
+
+    const [images, setImages] = useState([]);
+    const [imageURLs, setImageURLs] = useState([]);
+
+    useEffect(() => { 
+    	if (images.length < 1) return;
+	const newImageUrls = [];
+	images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
+	setImageURLs(newImageUrls);
+    }, [images]);
+    function onImageChange(e) {
+	setImages([...e.target.files]);
+    }
     function handleChange(event) {
         const target = event.target;
         const value = target.value;
@@ -22,7 +35,9 @@ function PostCompose() {
             setPostContent({...postContent, contact: value});
         } else if (name == "description") {
             setPostContent({...postContent, description: value});
-        }
+        } else if (name == "image")
+            setPostContent({...postContent, image: value});
+
     }
     function handleSubmit(e) {
         React.memo();
@@ -76,7 +91,11 @@ function PostCompose() {
                             type="textarea" 
                             onChange={ handleChange } />
                     </label>
-                    <div>
+		    <label>
+			<input type="file" onChange={onImageChange} />
+		    	{ imageURLs.map(imageSrc => <img src={imageSrc} width="150" height="150"/>) }
+		    </label>
+		    <div>
                         <button variant="primary" type = "submit">Post</button>
                         <button className="button" onClick={() => { console.log('modal closed '); close(); }} > Cancel </button> 
                     </div>

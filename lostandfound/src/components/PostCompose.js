@@ -62,6 +62,7 @@ function PostCompose() {
         <Popup trigger={ <button className="button"> New Post</button>} modal nested > 
             {  
             close => ( <div className="modal"> <button className="close" onClick={close}> &times; </button> 
+                <div className="popup-box">
                 <div className="header"> Found an Item? </div> 
                 <form onSubmit={handleSubmit} >
                     <label>
@@ -100,7 +101,7 @@ function PostCompose() {
                         <button className="button" onClick={() => { console.log('modal closed '); close(); }} > Cancel </button> 
                     </div>
                 </form>
-            
+                </div>
             </div> )
             } 
         </Popup>); 

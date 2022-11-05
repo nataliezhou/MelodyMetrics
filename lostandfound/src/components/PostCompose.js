@@ -21,6 +21,7 @@ function PostCompose() {
     function onImageChange(e) {
 	setImages([...e.target.files]);
     }
+    
     function handleChange(event) {
         const target = event.target;
         const value = target.value;

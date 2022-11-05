@@ -16,7 +16,7 @@ html {
   
 }
 
-.postBox {
+.postsDiv {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

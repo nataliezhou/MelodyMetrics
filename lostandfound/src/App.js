@@ -13,18 +13,15 @@ function App() {
   // retrieve preset data
   initItems = []
   if(!localStorage.getItem("items")){ // only runs the first
-    console.log("first")
     var initItems = []
     Data.map((post) => (
       initItems.push(post) 
     ));
     localStorage.setItem("items", JSON.stringify(initItems));
   } else {
-    console.log("second")
     initItems = JSON.parse(localStorage.getItem("items"));
   }
   const [items, setItems] = useState(initItems);
-  console.log(items);
   
   return (
     <div className="App">
@@ -44,12 +41,16 @@ function App() {
 
         <PostCompose></PostCompose>
         <input placeholder="Enter description of lost item, location/date you lost it at" onChange={event => setQuery(event.target.value)} />
-        <div className = "postBox">
+        <div className = "postsDiv">
         {
-          Data.filter(items => {
+          items.filter(items => { 
+           // const x = Object.values(items).map(name => name.toString().toLowerCase())
+           // console.log(x)
             if (query === '') {
               return items;
-            } else if (items.item.toLowerCase().includes(query.toLowerCase())) {
+            } else if (Object.values(items).map(name => name.toString().toLowerCase()).some(
+                it => it.includes(query.toLowerCase()))) 
+            {
               return items;
             }
           }).map((item) => (

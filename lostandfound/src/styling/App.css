@@ -1,3 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:900|Work+Sans:400);
+
+html {
+  background-color: #13294B;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -6,9 +12,11 @@
   text-align: center;
   margin: 1rem;
   gap: .5rem;
+  font-family: 'Work Sans', sans-serif;
+  
 }
 
-.postBox {
+.postsDiv {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -31,6 +39,13 @@
   margin: 3px;
   width: 20rem;
   padding-left: 10px;
+  background-color: white;
+  transition: .5s;
+}
+
+.box:hover {
+  filter: invert();
+  background-color: gray;
 }
 
 input { /* search bar */
@@ -43,7 +58,16 @@ button {
   font-size: 15px;
 }
 
-.modal { font-size: 12px;}.modal > .header { width: 100%; border-bottom: 1px solid gray; font-size: 18px; text-align: center; padding: 5px;}.modal > .content { width: 100%; padding: 10px 5px;}.modal > .actions { width: 100%; padding: 10px 5px; margin: auto; text-align: center;}.modal > .close { cursor: pointer; position: absolute; display: block; padding: 2px 5px; line-height: 20px; right: -10px; top: -10px; font-size: 24px; background: #ffffff; border-radius: 18px; border: 1px solid #cfcece;} 
+.modal { 
+  font-size: 12px;}.modal > .header { width: 100%; border-bottom: 1px solid gray; font-size: 18px; text-align: center; padding: 5px;}.modal > .content { width: 100%; padding: 10px 5px;}.modal > .actions { width: 100%; padding: 10px 5px; margin: auto; text-align: center;}.modal > .close { cursor: pointer; position: absolute; display: block; padding: 2px 5px; line-height: 20px; right: -10px; top: -10px; font-size: 24px; background: #ffffff; border-radius: 18px; border: 1px solid #cfcece;
+  } 
+
+.popup-box {
+  justify-content: center;
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 30px;
+}
 
 /* @media (prefers-reduced-motion: no-preference) {
   .App-logo {

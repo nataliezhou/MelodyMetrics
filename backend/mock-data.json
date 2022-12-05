@@ -3,119 +3,48 @@
     "item": "Keys",
     "location": "6th Street",
     "color": "Teal",
-    "datetime": "10/5/2022"
+    "datetime": "2022-10-5"
   }, {
     "id": 2,
     "item": "Keys",
     "location": "Grainger",
     "color": "Purple",
-    "datetime": "9/23/2022"
+    "datetime": "2022-9-23"
   }, {
     "id": 3,
     "item": "Mobile",
     "location": "BIF",
     "color": "Teal",
-    "datetime": "9/29/2022"
+    "datetime": "2022-9-29"
   }, {
     "id": 4,
     "item": "Charger",
     "location": "South Quad",
     "color": "Turquoise",
-    "datetime": "10/4/2022"
+    "datetime": "2022-10-4"
   }, {
     "id": 5,
     "item": "Keys",
     "location": "Alma",
     "color": "Khaki",
-    "datetime": "9/15/2022"
+    "datetime": "2022-9-15"
   }, {
     "id": 6,
     "item": "Wallet",
     "location": "Lester",
     "color": "Teal",
-    "datetime": "9/14/2022"
+    "datetime": "2022-9-14"
   }, {
     "id": 7,
     "item": "Laptop",
     "location": "Oak",
     "color": "Goldenrod",
-    "datetime": "9/18/2022"
+    "datetime": "2022-18-9"
   }, {
     "id": 8,
     "item": "Keys",
     "location": "Prospect Avenue",
     "color": "Yellow",
-    "datetime": "9/10/2022"
+    "datetime": "2022-9-9"
   }, {
     "id": 9,
-    "item": "Purse",
-    "location": "Bash Court",
-    "color": "Orange",
-    "datetime": "9/11/2022"
-  }, {
-    "id": 10,
-    "item": "Bag",
-    "location": "John",
-    "color": "Green",
-    "datetime": "9/20/2022"
-  }, {
-    "id": 11,
-    "item": "Clothes",
-    "location": "5th Street",
-    "color": "Violet",
-    "datetime": "10/1/2022"
-  }, {
-    "id": 12,
-    "item": "Bottle",
-    "location": "ISR",
-    "color": "Fuscia",
-    "datetime": "9/16/2022"
-  }, {
-    "id": 13,
-    "item": "Charger",
-    "location": "Illini Union",
-    "color": "Fuscia",
-    "datetime": "9/13/2022"
-  }, {
-    "id": 14,
-    "item": "Books",
-    "location": "University Avenue",
-    "color": "Teal",
-    "datetime": "10/3/2022"
-  }, {
-    "id": 15,
-    "item": "Wallet",
-    "location": "Quincy",
-    "color": "Maroon",
-    "datetime": "10/2/2022"
-  }, {
-    "id": 16,
-    "item": "Wallet",
-    "location": "3rd Street",
-    "color": "Pink",
-    "datetime": "10/4/2022"
-  }, {
-    "id": 17,
-    "item": "AirPods",
-    "location": "Pennsylvania Avenue",
-    "color": "Indigo",
-    "datetime": "9/16/2022"
-  }, {
-    "id": 18,
-    "item": "Laptop",
-    "location": "Stoughton",
-    "color": "Khaki",
-    "datetime": "9/14/2022"
-  }, {
-    "id": 19,
-    "item": "iCard",
-    "location": "Green St.",
-    "color": "Goldenrod",
-    "datetime": "9/1/2022"
-  }, {
-    "id": 20,
-    "item": "Purse",
-    "location": "Wright St.",
-    "color": "Fuscia",
-    "datetime": "9/29/2022"
-  }]

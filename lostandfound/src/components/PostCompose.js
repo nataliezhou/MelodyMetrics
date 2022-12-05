@@ -41,6 +41,7 @@ function PostCompose() {
             setPostContent({...postContent, description: value});
         } else if (name == "image")
             setPostContent({...postContent, image: value});
+	    {imageURLs.map(imageSrc => <img src={imageSrc} width="150" height="150"/>) }
 
     }
     function handleSubmit(e) {
@@ -84,7 +85,7 @@ function PostCompose() {
                     </label>
                     <label>
                         <input placeholder="Date Found" 
-                            name = "date" 
+                            name = "datetime" 
                             type="date"
                             onChange={ handleChange } />
                     </label>
@@ -99,13 +100,13 @@ function PostCompose() {
                             onChange={ handleChange } />
                     </label>
                     <label>
-                        <input placeholder="Description/notes" 
+                        <input placeholder="Color" 
                             name = "description"
                             type="textarea" 
                             onChange={ handleChange } />
                     </label>
 		    <label>
-			<input type="file" onChange={onImageChange} />
+			<input type="file" name = "image" onChange={onImageChange} />
 		    	{ imageURLs.map(imageSrc => <img src={imageSrc} width="150" height="150"/>) }
 		    </label>
 		    <div>

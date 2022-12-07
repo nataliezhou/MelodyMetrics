@@ -18,13 +18,18 @@ def get():
 
 @app.route('/post', methods=['POST'])
 def post():
- new_post = request.json
+ new_post = request.json['content']
+ print("new post ->", new_post)
  item = new_post
  item['id'] = len(data) + 1
- data.append(item)
+ data.insert(0, item)
  with open('mock-data.json', 'w') as f:
   json.dump(data, f)
  return 'success'
+
+@app.route('/quit')
+def quit():
+    app._exit(0)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request
-import json
+import json, time
 
 app = Flask(__name__)
 
 with open('mock-data.json') as f:
  data = json.load(f)
+
+@app.route('/time') # test
+def get_current_time():
+    return {'time': time.time()}
 
 @app.route('/get', methods=['GET'])
 def get():
@@ -22,4 +26,5 @@ def post():
   json.dump(data, f)
  return 'success'
 
-app.run()
+if __name__ == '__main__':
+    app.run(debug=True)

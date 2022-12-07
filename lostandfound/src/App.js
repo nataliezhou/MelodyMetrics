@@ -10,18 +10,25 @@ import PostCompose from './components/PostCompose';
 function App() {
   //query
   const [query, setQuery] = useState("")
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    fetch('/get').then(res => res.json()).then(data => {
+      console.log(data);
+      setItems(data);
+    });
+  }, []);
+
   // retrieve preset data
-  initItems = []
-  if(!localStorage.getItem("items")){ // only runs the first
-    var initItems = []
-    Data.map((post) => (
-      initItems.push(post) 
-    ));
-    localStorage.setItem("items", JSON.stringify(initItems));
-  } else {
-    initItems = JSON.parse(localStorage.getItem("items"));
-  }
-  const [items, setItems] = useState(initItems);
+  // initItems = []
+  // if(!localStorage.getItem("items")){ // only runs the first
+  //   var initItems = []
+  //   Data.map((post) => (
+  //     initItems.push(post) 
+  //   ));
+  //   localStorage.setItem("items", JSON.stringify(initItems));
+  // } else {
+  //   initItems = JSON.parse(localStorage.getItem("items"));
+  // }
   
   return (
     <div className="App">

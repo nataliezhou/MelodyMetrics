@@ -4,21 +4,25 @@ import 'reactjs-popup/dist/index.css';
 
 function PostCompose() { 
     const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: "", image: ""});
-    const [items, setItems] = useState(
-        JSON.parse(localStorage.getItem("items")) || []
-    );
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch('/get').then(res => res.json()).then(data => {
+        console.log(data);
+        setItems(data);
+        });
+    }, []);
 
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
 
     useEffect(() => { 
     	if (images.length < 1) return;
-	const newImageUrls = [];
-	images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
-	setImageURLs(newImageUrls);
-    }, [images]);
-    function onImageChange(e) {
-	setImages([...e.target.files]);
+        const newImageUrls = [];
+        images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
+        setImageURLs(newImageUrls);
+        }, [images]);
+        function onImageChange(e) {
+        setImages([...e.target.files]);
     }
     
     function handleChange(event) {
@@ -42,19 +46,28 @@ function PostCompose() {
     function handleSubmit(e) {
         React.memo();
         createPost(postContent);
-       // document.getElementsByName("Popup").classList.remove("show");
     }
      async function createPost(content) {
         try {
-            localStorage.setItem("items", JSON.stringify(items.concat(content)));
-            console.log("Posted successfully!");
-         //   const initItems = JSON.parse(localStorage.getItem("items"));
-            //console.log(initItems);
-           // setPostContent("", null, "", "", "");
-          
+            const todo = { content };
+            const response = await fetch("/post", {
+            method: "POST",
+                headers: {
+                'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(todo)
+            })
+            if (response.ok){
+                console.log("it worked")
+            } 
+        //     localStorage.setItem("items", JSON.stringify(items.concat(content)));
+        //     console.log("Posted successfully!");
+        //  //   const initItems = JSON.parse(localStorage.getItem("items"));
+        //     //console.log(initItems);
+        //    // setPostContent("", null, "", "", "");
         } catch (error) {
-            console.log(error);
-          console.log("Post failed. Please try again later!");
+                console.log(error);
+                console.log("Post failed. Please try again later!");
         }
     } 
     return (

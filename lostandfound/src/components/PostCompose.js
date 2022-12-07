@@ -7,7 +7,6 @@ function PostCompose() {
     const [items, setItems] = useState(
         JSON.parse(localStorage.getItem("items")) || []
     );
-    console.log(items);
 
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
@@ -42,7 +41,6 @@ function PostCompose() {
     }
     function handleSubmit(e) {
         React.memo();
-        console.log("handle");
         createPost(postContent);
        // document.getElementsByName("Popup").classList.remove("show");
     }

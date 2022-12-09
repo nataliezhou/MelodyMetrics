@@ -19,7 +19,6 @@ def get():
 @app.route('/post', methods=['POST'])
 def post():
  new_post = request.json['content']
- print("new post ->", new_post)
  item = new_post
  item['id'] = len(data) + 1
  data.insert(0, item)

@@ -3,7 +3,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 function PostCompose() { 
-    const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: "", image: ""});
+    const [postContent, setPostContent] = useState({ item: "", datetime: "", location: "", contact: "", description: "", image: []});
     const [items, setItems] = useState([]);
     useEffect(() => {
         fetch('/get').then(res => res.json()).then(data => {
@@ -15,13 +15,27 @@ function PostCompose() {
     const [images, setImages] = useState([]);
     const [imageURLs, setImageURLs] = useState([]);
 
+    function toDataURL(file) {
+        const reader = new FileReader();
+        reader.onloadend = function() {
+            const imageArr = postContent["image"];
+            imageArr.push(reader.result);
+            setPostContent({...postContent, image: imageArr});
+        }
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+
     useEffect(() => { 
     	if (images.length < 1) return;
+        console.log("_useeffect");
         const newImageUrls = [];
-        images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
-        setImageURLs(newImageUrls);
-        }, [images]);
-        function onImageChange(e) {
+        // images.forEach(image => newImageUrls.push(URL.createObjectURL(image))); // blob:
+        images.forEach(image => { toDataURL(image)});
+    }, [images]);
+
+    function onImageChange(e) {
         setImages([...e.target.files]);
     }
     

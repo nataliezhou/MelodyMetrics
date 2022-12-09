@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-// import logo from './logo.svg';
+import logo from "./styling/iLost-logo.png"
 import './styling/App.css';
 // import SearchBar from './components/SearchBar';
 //import {useState} from "react"; // hook
@@ -45,7 +45,7 @@ function App() {
         >
           Learn React
         </a> */}
-
+        <img src={logo} class="logo" alt="iLost Logo"/>
         <PostCompose></PostCompose>
         <input placeholder="Enter description of lost item, location/date you lost it at" onChange={event => setQuery(event.target.value)} />
         <div className = "postsDiv">

@@ -9,7 +9,6 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
   margin: 1rem;
   gap: .5rem;
   font-family: 'Work Sans', sans-serif;
@@ -17,35 +16,49 @@ html {
 }
 
 .postsDiv {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: left;
-  align-items: left;
+  display: grid;
+  /* flex-direction: row;
+  flex-wrap: wrap; */
+  grid-template-columns: repeat(4, 25%);
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  margin: 10px;
   padding: 1rem;
+  grid-auto-rows: minmax(min-content, max-content);
+  row-gap: 20px;
+  width: 100%;  
+  align-items: start;
 }
 
-/* .App-logo {
-  height: 40vmin;
+.logo {
+  height: 70px;
   pointer-events: none;
-} */
+}
 
 
 .box {
   text-align: left;
-  border: black ridge 1px;
   border-radius: 10px;
-  margin: 3px;
-  width: 20rem;
-  padding-left: 10px;
+  margin: 10px;
+  padding: 10px;
   background-color: white;
-  transition: .5s;
+  transition: .4s;
+  max-height: 400px;
+}
+
+.box img {
+  width: 90%;
+  height: 30%;
+  object-fit: contain;
+  display: block;
+  margin: 20px;
+  text-align: center;
 }
 
 .box:hover {
-  filter: invert();
-  background-color: gray;
+  color: white;
+  background-color: #383838;
 }
 
 input { /* search bar */

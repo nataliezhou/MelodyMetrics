@@ -8,13 +8,21 @@ The frontend and backend interact through REST API requests, and we used GET and
 
 # Reproducible Installation Instructions: 
 Install Python: https://www.python.org/downloads/
+
 Install Node.JS from website: https://nodejs.org/en/download/ 
+
 Install yarn package manager: Run ‘npm install --global yarn’
+
 Use git clone with the https link in the project directory
-To run program:
+
+## To run program:
+
 Git pull project from Github
+
 In a terminal, navigate to the directory lostandfound and run ‘yarn start-api’
+
 Open a new terminal in the same directory and run ‘yarn start’
+
 Access website at localhost:3000
 
 # Group Members & Roles: 

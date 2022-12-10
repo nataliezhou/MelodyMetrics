@@ -29,9 +29,7 @@ function PostCompose() {
 
     useEffect(() => { 
     	if (images.length < 1) return;
-        console.log("_useeffect");
         const newImageUrls = [];
-        // images.forEach(image => newImageUrls.push(URL.createObjectURL(image))); // blob:
         images.forEach(image => { toDataURL(image)});
     }, [images]);
 

@@ -15,7 +15,7 @@ Install yarn package manager: Run ‘npm install --global yarn’
 
 Use git clone with the https link in the project directory
 
-## To run program:
+### To run program:
 
 Git pull project from Github
 
